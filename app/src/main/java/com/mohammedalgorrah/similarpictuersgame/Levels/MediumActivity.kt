@@ -5,11 +5,11 @@ import android.animation.AnimatorSet
 import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import coil.load
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
@@ -73,11 +73,9 @@ class MediumActivity : AppCompatActivity() {
             dialog.dismiss()
         }
         dialog.show()
-
     }
 
     private fun getImages() {
-
         val grou = when (Random.nextInt(1, 11)) {
             1 -> "animals"
             2 -> "car"
@@ -93,7 +91,6 @@ class MediumActivity : AppCompatActivity() {
         }
 
         when (Random.nextInt(1, 6)) {
-
             1 -> db!!.collection("items").whereEqualTo("group", grou).limit(8).get()
                 .addOnSuccessListener { x ->
 
@@ -121,7 +118,6 @@ class MediumActivity : AppCompatActivity() {
 
                     img2.setOnClickListener {
                         animView(img2, x.documents[1].get("image").toString())
-
                     }
 
                     img3.setOnClickListener {
@@ -179,8 +175,6 @@ class MediumActivity : AppCompatActivity() {
                     img16.setOnClickListener {
                         animView(img16, x.documents[7].get("image").toString())
                     }
-
-
                 }
 
             2 -> db!!.collection("items").whereEqualTo("group", grou).limit(8).get()
@@ -210,7 +204,6 @@ class MediumActivity : AppCompatActivity() {
 
                     img2.setOnClickListener {
                         animView(img2, x.documents[3].get("image").toString())
-
                     }
 
                     img3.setOnClickListener {
@@ -268,13 +261,10 @@ class MediumActivity : AppCompatActivity() {
                     img16.setOnClickListener {
                         animView(img16, x.documents[2].get("image").toString())
                     }
-
-
                 }
 
             3 -> db!!.collection("items").whereEqualTo("group", grou).limit(8).get()
                 .addOnSuccessListener { x ->
-
 
                     img1.load(x.documents[6].get("image").toString())
                     img2.load(x.documents[3].get("image").toString())
@@ -300,7 +290,6 @@ class MediumActivity : AppCompatActivity() {
 
                     img2.setOnClickListener {
                         animView(img2, x.documents[3].get("image").toString())
-
                     }
 
                     img3.setOnClickListener {
@@ -358,8 +347,6 @@ class MediumActivity : AppCompatActivity() {
                     img16.setOnClickListener {
                         animView(img16, x.documents[6].get("image").toString())
                     }
-
-
                 }
 
             4 -> db!!.collection("items").whereEqualTo("group", grou).limit(8).get()
@@ -389,7 +376,6 @@ class MediumActivity : AppCompatActivity() {
 
                     img2.setOnClickListener {
                         animView(img2, x.documents[3].get("image").toString())
-
                     }
 
                     img3.setOnClickListener {
@@ -447,8 +433,6 @@ class MediumActivity : AppCompatActivity() {
                     img16.setOnClickListener {
                         animView(img16, x.documents[7].get("image").toString())
                     }
-
-
                 }
 
             5 -> db!!.collection("items").whereEqualTo("group", grou).limit(8).get()
@@ -472,14 +456,12 @@ class MediumActivity : AppCompatActivity() {
                     img15.load(x.documents[5].get("image").toString())
                     img16.load(x.documents[4].get("image").toString())
 
-
                     img1.setOnClickListener {
                         animView(img1, x.documents[7].get("image").toString())
                     }
 
                     img2.setOnClickListener {
                         animView(img2, x.documents[6].get("image").toString())
-
                     }
 
                     img3.setOnClickListener {
@@ -566,12 +548,10 @@ class MediumActivity : AppCompatActivity() {
         val animate3: AnimatorSet =
             AnimatorInflater.loadAnimator(this, R.animator.flip2) as AnimatorSet
         Handler().postDelayed({
-
             imgx.isEnabled = true
             click.isEnabled = true
             imgx.load(R.drawable.img111)
             click.load(R.drawable.img111)
-
         }, 1000)
 
         Handler().postDelayed({
@@ -692,12 +672,12 @@ class MediumActivity : AppCompatActivity() {
 
     private fun activity(cl: Class<*>, B: Boolean) {
         startActivity(Intent(this, cl))
-        if (B)
+        if (B) {
             finish()
+        }
     }
 
     private fun notEnabled() {
-
         img1.isEnabled = false
         img2.isEnabled = false
         img3.isEnabled = false
@@ -736,7 +716,6 @@ class MediumActivity : AppCompatActivity() {
     }
 
     private fun Hide() {
-
         img1.isVisible = false
         img2.isVisible = false
         img3.isVisible = false
@@ -753,12 +732,9 @@ class MediumActivity : AppCompatActivity() {
         img14.isVisible = false
         img15.isVisible = false
         img16.isVisible = false
-
-
     }
 
     private fun showw() {
-
         img1.isVisible = true
         img2.isVisible = true
         img3.isVisible = true
@@ -776,5 +752,4 @@ class MediumActivity : AppCompatActivity() {
         img15.isVisible = true
         img16.isVisible = true
     }
-
 }

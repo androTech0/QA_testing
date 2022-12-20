@@ -5,13 +5,13 @@ import android.animation.AnimatorSet
 import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
-import coil.load
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import coil.load
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -75,10 +75,7 @@ class ProfessionalActivity : AppCompatActivity() {
         dialog.show()
     }
 
-
-
     private fun getImages() {
-
         val grou = when (Random.nextInt(1, 11)) {
             1 -> "animals"
             2 -> "car"
@@ -94,7 +91,6 @@ class ProfessionalActivity : AppCompatActivity() {
         }
 
         when (Random.nextInt(1, 6)) {
-
             1 -> db!!.collection("items").whereEqualTo("group", grou).limit(12).get()
                 .addOnSuccessListener { x ->
 
@@ -123,14 +119,12 @@ class ProfessionalActivity : AppCompatActivity() {
                     img23.load(x.documents[10].get("image").toString())
                     img24.load(x.documents[11].get("image").toString())
 
-
                     img1.setOnClickListener {
                         animView(img1, x.documents[0].get("image").toString())
                     }
 
                     img2.setOnClickListener {
                         animView(img2, x.documents[1].get("image").toString())
-
                     }
 
                     img3.setOnClickListener {
@@ -220,7 +214,6 @@ class ProfessionalActivity : AppCompatActivity() {
                     img24.setOnClickListener {
                         animView(img24, x.documents[11].get("image").toString())
                     }
-
                 }
 
             2 -> db!!.collection("items").whereEqualTo("group", grou).limit(12).get()
@@ -252,14 +245,12 @@ class ProfessionalActivity : AppCompatActivity() {
                     img23.load(x.documents[2].get("image").toString())
                     img24.load(x.documents[0].get("image").toString())
 
-
                     img1.setOnClickListener {
                         animView(img1, x.documents[0].get("image").toString())
                     }
 
                     img2.setOnClickListener {
                         animView(img2, x.documents[2].get("image").toString())
-
                     }
 
                     img3.setOnClickListener {
@@ -349,7 +340,6 @@ class ProfessionalActivity : AppCompatActivity() {
                     img24.setOnClickListener {
                         animView(img24, x.documents[0].get("image").toString())
                     }
-
                 }
 
             3 -> db!!.collection("items").whereEqualTo("group", grou).limit(12).get()
@@ -394,14 +384,12 @@ class ProfessionalActivity : AppCompatActivity() {
                     img23.load(x.documents[0].get("image").toString())
                     img24.load(x.documents[4].get("image").toString())
 
-
                     img1.setOnClickListener {
                         animView(img1, mg1)
                     }
 
                     img2.setOnClickListener {
                         animView(img2, mg2)
-
                     }
 
                     img3.setOnClickListener {
@@ -491,8 +479,6 @@ class ProfessionalActivity : AppCompatActivity() {
                     img24.setOnClickListener {
                         animView(img24, x.documents[4].get("image").toString())
                     }
-
-
                 }
 
             4 -> db!!.collection("items").whereEqualTo("group", grou).limit(12).get()
@@ -524,14 +510,12 @@ class ProfessionalActivity : AppCompatActivity() {
                     img23.load(x.documents[2].get("image").toString())
                     img24.load(x.documents[8].get("image").toString())
 
-
                     img1.setOnClickListener {
                         animView(img1, x.documents[4].get("image").toString())
                     }
 
                     img2.setOnClickListener {
                         animView(img2, x.documents[11].get("image").toString())
-
                     }
 
                     img3.setOnClickListener {
@@ -621,7 +605,6 @@ class ProfessionalActivity : AppCompatActivity() {
                     img24.setOnClickListener {
                         animView(img24, x.documents[8].get("image").toString())
                     }
-
                 }
 
             5 -> db!!.collection("items").whereEqualTo("group", grou).limit(12).get()
@@ -653,14 +636,12 @@ class ProfessionalActivity : AppCompatActivity() {
                     img23.load(x.documents[10].get("image").toString())
                     img24.load(x.documents[4].get("image").toString())
 
-
                     img1.setOnClickListener {
                         animView(img1, x.documents[8].get("image").toString())
                     }
 
                     img2.setOnClickListener {
                         animView(img2, x.documents[1].get("image").toString())
-
                     }
 
                     img3.setOnClickListener {
@@ -750,10 +731,8 @@ class ProfessionalActivity : AppCompatActivity() {
                     img24.setOnClickListener {
                         animView(img24, x.documents[4].get("image").toString())
                     }
-
                 }
         }
-
     }
 
     private fun backG() {
@@ -789,12 +768,10 @@ class ProfessionalActivity : AppCompatActivity() {
         val animate3: AnimatorSet =
             AnimatorInflater.loadAnimator(this, R.animator.flip2) as AnimatorSet
         Handler().postDelayed({
-
             imgx.isEnabled = true
             click.isEnabled = true
             imgx.load(R.drawable.img111)
             click.load(R.drawable.img111)
-
         }, 1000)
 
         Handler().postDelayed({
@@ -831,7 +808,7 @@ class ProfessionalActivity : AppCompatActivity() {
                     click1!!.isEnabled = false
                     i2 = ""
                     i1 = ""
-                    count +=1
+                    count += 1
                     tru += 1
                     counterr()
                     truu.text = tru.toString()
@@ -853,11 +830,11 @@ class ProfessionalActivity : AppCompatActivity() {
             d.setCancelable(false)
             d.setContentView(R.layout.win_dialog)
             d.main.setOnClickListener {
-                activity(MainActivity::class.java,true)
+                activity(MainActivity::class.java, true)
                 Animatoo.animateCard(this)
             }
             d.again.setOnClickListener {
-                activity(ProfessionalActivity::class.java,true)
+                activity(ProfessionalActivity::class.java, true)
                 Animatoo.animateSlideUp(this)
             }
             d.share.setOnClickListener {
@@ -884,11 +861,11 @@ class ProfessionalActivity : AppCompatActivity() {
             d.setContentView(R.layout.lose_dialog)
 
             d.mainl.setOnClickListener {
-                activity(MainActivity::class.java,true)
+                activity(MainActivity::class.java, true)
                 Animatoo.animateCard(this)
             }
             d.againl.setOnClickListener {
-                activity(ProfessionalActivity::class.java,true)
+                activity(ProfessionalActivity::class.java, true)
                 Animatoo.animateSlideUp(this)
             }
             d.sharel.setOnClickListener {
@@ -913,14 +890,14 @@ class ProfessionalActivity : AppCompatActivity() {
         }
     }
 
-    private fun activity( cl: Class<*>, B: Boolean) {
+    private fun activity(cl: Class<*>, B: Boolean) {
         startActivity(Intent(this, cl))
-        if (B)
+        if (B) {
             finish()
+        }
     }
 
     private fun notEnabled() {
-
         img1.isEnabled = false
         img2.isEnabled = false
         img3.isEnabled = false
@@ -975,7 +952,6 @@ class ProfessionalActivity : AppCompatActivity() {
     }
 
     private fun Hide() {
-
         img1.isVisible = false
         img2.isVisible = false
         img3.isVisible = false
@@ -1000,11 +976,9 @@ class ProfessionalActivity : AppCompatActivity() {
         img22.isVisible = false
         img23.isVisible = false
         img24.isVisible = false
-
     }
 
     private fun showw() {
-
         img1.isVisible = true
         img2.isVisible = true
         img3.isVisible = true
@@ -1030,6 +1004,4 @@ class ProfessionalActivity : AppCompatActivity() {
         img23.isVisible = true
         img24.isVisible = true
     }
-
-
 }
