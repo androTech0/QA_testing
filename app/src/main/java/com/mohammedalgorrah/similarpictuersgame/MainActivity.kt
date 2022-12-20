@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        error_layout.visibility = View.GONE
+        error_layout.visibility = View.GONE
 //        val connManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 //        val mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
         val animate = AnimationUtils.loadAnimation(this, R.anim.right_animation)

@@ -25,7 +25,7 @@ class levelTest {
 
     @Test
     fun buttonClick() {
-        when (1) {
+        when (3) {
             1 -> {
                 Espresso.onView(withId(R.id.easyBtn)).perform(click())
                 Log.i("myLevel", "Easy level")

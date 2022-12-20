@@ -5,8 +5,8 @@ import android.net.ConnectivityManager
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.internal.runner.junit4.statement.UiThreadStatement.runOnUiThread
 import androidx.test.rule.ActivityTestRule
 import kotlinx.android.synthetic.main.activity_main.*
@@ -40,6 +40,6 @@ class MainActivityTest {
 
     @Test
     fun startBtnTest() {
-        Espresso.onView(ViewMatchers.withId(R.id.start)).perform(ViewActions.click())
+        Espresso.onView(withId(R.id.start)).perform(click())
     }
 }
