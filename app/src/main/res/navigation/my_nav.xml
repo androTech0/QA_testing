@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/viewPagerFragment"
+    >
+
+
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.mohammedalgorrah.similarpictuersgame.onboarding.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_mainActivity2"
+            app:destination="@id/MainActivity2"
+            app:popUpTo="@id/MainActivity2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <activity
+        android:id="@+id/MainActivity2"
+        android:name="com.mohammedalgorrah.similarpictuersgame.MainActivity"
+        android:label="activity_main2"
+        tools:layout="@layout/activity_main" />
+</navigation>

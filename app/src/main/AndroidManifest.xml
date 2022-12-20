@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mohammedalgorrah.similarpictuersgame">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/img111"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/img111"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SimilarPictuersGame">
+
+        <meta-data
+            android:name="com.startapp.sdk.APPLICATION_ID"
+            android:value="207146272" />
+
+        <activity android:name=".onboarding.SplashActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Levels.ProfessionalActivity" />
+        <activity android:name=".Levels.HardActivity" />
+        <activity android:name=".Levels.MediumActivity" />
+        <activity android:name=".Levels.EasyActivity" />
+        <activity android:name=".level" />
+
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

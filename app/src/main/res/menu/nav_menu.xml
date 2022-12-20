@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+<!--    <item android:title="Settings">-->
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/home"-->
+<!--                android:title="Home" />-->
+<!--            <item-->
+<!--                android:id="@+id/logOut"-->
+<!--                android:title="logOut" />-->
+<!--        </menu>-->
+<!--    </item>-->
+
+    <item android:title="@string/communicate">
+        <menu>
+            <item
+                android:id="@+id/share"
+                android:title="@string/share_app" />
+            <item
+                android:id="@+id/rateUs"
+                android:title="@string/rate_app" />
+            <item
+                android:id="@+id/more"
+                android:title="@string/more_apps_we_made" />
+        </menu>
+    </item>
+
+</menu>
