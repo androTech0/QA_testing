@@ -32,8 +32,8 @@ class EasyActivity : AppCompatActivity() {
     private var db: FirebaseFirestore? = null
     private var i1 = ""
     private var i2 = ""
-    private var count = 0
-    private var tru = 0
+    var count = 0
+    var tru = 0
     private var click1: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +43,6 @@ class EasyActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
         db = Firebase.firestore
-        getImages()
 
         startapp_1.loadAd()
         startapp_2.loadAd()
@@ -64,7 +63,7 @@ class EasyActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun getImages() {
+    public fun getImages() {
         val grou = when (Random.nextInt(1, 11)) {
             1 -> "animals"
             2 -> "car"
@@ -79,7 +78,7 @@ class EasyActivity : AppCompatActivity() {
             else -> "animals"
         }
 
-        when (Random.nextInt(1, 6)) {
+        when (1 /* Random.nextInt(1, 6)*/) {
             1 -> db!!.collection("items").whereEqualTo("group", grou).limit(6).get()
                 .addOnSuccessListener { x ->
 
