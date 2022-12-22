@@ -7,7 +7,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -35,6 +34,7 @@ class EasyActivity : AppCompatActivity() {
     var count = 0
     var tru = 0
     private var click1: ImageView? = null
+    var solution = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,24 +46,9 @@ class EasyActivity : AppCompatActivity() {
 
         startapp_1.loadAd()
         startapp_2.loadAd()
-
-        Hide()
-        val dialog = Dialog(this)
-        dialog.setCancelable(false)
-        dialog.setContentView(R.layout.timer_dialog)
-        val btn = dialog.findViewById<Button>(R.id.btnD)
-        btn.setOnClickListener {
-            showw()
-            notEnabled()
-            Handler().postDelayed({
-                backG()
-            }, 5000)
-            dialog.dismiss()
-        }
-        dialog.show()
     }
 
-    public fun getImages() {
+    fun getImages() {
         val grou = when (Random.nextInt(1, 11)) {
             1 -> "animals"
             2 -> "car"
@@ -78,10 +63,10 @@ class EasyActivity : AppCompatActivity() {
             else -> "animals"
         }
 
-        when (1 /* Random.nextInt(1, 6)*/) {
+        when (Random.nextInt(1, 6)) {
             1 -> db!!.collection("items").whereEqualTo("group", grou).limit(6).get()
                 .addOnSuccessListener { x ->
-
+                    solution = 1
                     img1.load(x.documents[0].get("image").toString())
                     img2.load(x.documents[1].get("image").toString())
                     img3.load(x.documents[2].get("image").toString())
@@ -145,7 +130,7 @@ class EasyActivity : AppCompatActivity() {
 
             2 -> db!!.collection("items").whereEqualTo("group", grou).limit(6).get()
                 .addOnSuccessListener { x ->
-
+                    solution = 2
                     img1.load(x.documents[0].get("image").toString())
                     img2.load(x.documents[1].get("image").toString())
                     img3.load(x.documents[2].get("image").toString())
@@ -210,7 +195,7 @@ class EasyActivity : AppCompatActivity() {
 
             3 -> db!!.collection("items").whereEqualTo("group", grou).limit(6).get()
                 .addOnSuccessListener { x ->
-
+                    solution = 3
                     img1.load(x.documents[5].get("image").toString())
                     img2.load(x.documents[1].get("image").toString())
                     img3.load(x.documents[4].get("image").toString())
@@ -276,7 +261,7 @@ class EasyActivity : AppCompatActivity() {
 
             4 -> db!!.collection("items").whereEqualTo("group", grou).limit(6).get()
                 .addOnSuccessListener { x ->
-
+                    solution = 4
                     img1.load(x.documents[4].get("image").toString())
                     img2.load(x.documents[2].get("image").toString())
                     img3.load(x.documents[1].get("image").toString())
@@ -342,7 +327,7 @@ class EasyActivity : AppCompatActivity() {
 
             5 -> db!!.collection("items").whereEqualTo("group", grou).limit(6).get()
                 .addOnSuccessListener { x ->
-
+                    solution = 5
                     img1.load(x.documents[5].get("image").toString())
                     img2.load(x.documents[0].get("image").toString())
                     img3.load(x.documents[4].get("image").toString())
@@ -408,7 +393,7 @@ class EasyActivity : AppCompatActivity() {
         }
     }
 
-    private fun iff(imgx: ImageView, click: ImageView) {
+    fun iff(imgx: ImageView, click: ImageView) {
         val animate2: AnimatorSet =
             AnimatorInflater.loadAnimator(this, R.animator.flip2) as AnimatorSet
         val animate3: AnimatorSet =
@@ -429,7 +414,7 @@ class EasyActivity : AppCompatActivity() {
         }, 600)
     }
 
-    private fun animFlip(imgx: ImageView) {
+    fun animFlip(imgx: ImageView) {
         val animate1: AnimatorSet =
             AnimatorInflater.loadAnimator(this, R.animator.flip) as AnimatorSet
 
@@ -437,7 +422,7 @@ class EasyActivity : AppCompatActivity() {
         animate1.start()
     }
 
-    private fun animView(imgx: ImageView, path: String) {
+    fun animView(imgx: ImageView, path: String) {
         animFlip(imgx)
         Handler().postDelayed({
             imgx.setBackgroundResource(R.drawable.img222)
@@ -473,7 +458,7 @@ class EasyActivity : AppCompatActivity() {
         }, 750)
     }
 
-    private fun counterr() {
+    fun counterr() {
         if (count == 6) {
             val d = Dialog(this)
             d.setCancelable(false)
@@ -504,7 +489,8 @@ class EasyActivity : AppCompatActivity() {
                 )
             }
             d.show()
-        } else if (tru == 14) {
+        }
+        else if (tru == 14) {
             val d = Dialog(this)
             d.setCancelable(false)
             d.setContentView(R.layout.lose_dialog)
@@ -539,7 +525,7 @@ class EasyActivity : AppCompatActivity() {
         }
     }
 
-    private fun backG() {
+    fun backG() {
         img1.load(R.drawable.img111)
         img2.load(R.drawable.img111)
         img3.load(R.drawable.img111)
@@ -554,14 +540,14 @@ class EasyActivity : AppCompatActivity() {
         img12.load(R.drawable.img111)
     }
 
-    private fun activity(cl: Class<*>, B: Boolean) {
+    fun activity(cl: Class<*>, B: Boolean) {
         startActivity(Intent(this, cl))
         if (B) {
             finish()
         }
     }
 
-    private fun notEnabled() {
+    fun notEnabled() {
         img1.isEnabled = false
         img2.isEnabled = false
         img3.isEnabled = false
@@ -591,7 +577,7 @@ class EasyActivity : AppCompatActivity() {
         }, 4800)
     }
 
-    private fun Hide() {
+    fun Hide() {
         img1.isVisible = false
         img2.isVisible = false
         img3.isVisible = false
@@ -606,7 +592,7 @@ class EasyActivity : AppCompatActivity() {
         img12.isVisible = false
     }
 
-    private fun showw() {
+    fun showw() {
         img1.isVisible = true
         img2.isVisible = true
         img3.isVisible = true
